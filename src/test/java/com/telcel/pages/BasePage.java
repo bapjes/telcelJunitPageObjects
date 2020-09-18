@@ -13,9 +13,10 @@ public class BasePage {
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, 15);
+        this.wait = new WebDriverWait(driver, 15);
 
     }
+
     public boolean isElementpresent (By locator) throws Exception
     {
         try {
@@ -51,4 +52,19 @@ public class BasePage {
             return false;
         }
     }
+
+    public boolean enterText(By locator,String state) throws Exception {
+        try {
+            wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+            scrollToWebElement(driver.findElement(locator));
+            driver.findElement(locator).clear();
+            driver.findElement(locator).sendKeys(state);
+            return true;
+        }
+        catch(Exception e)
+        {
+            return false;
+        }
+    }
+
 }

@@ -3,8 +3,7 @@ package com.telcel.pages;
 import com.telcel.utils.Celular;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 public class PhoneInfoPage extends BasePage {
 
@@ -42,20 +41,6 @@ public class PhoneInfoPage extends BasePage {
         } else {
             System.out.println("Information of the telephone is incorrect");
             throw new Exception("Information of the telephone is incorrect");
-        }
-    }
-
-    //////
-    public boolean isElementpresent (By locator) throws Exception
-    {
-        try {
-            //wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-            wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-            return true;
-        }
-        catch (Exception e)
-        {
-            return false;
         }
     }
 

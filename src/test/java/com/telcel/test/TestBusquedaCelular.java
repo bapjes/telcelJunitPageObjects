@@ -7,9 +7,6 @@ public class TestBusquedaCelular  extends ParentTest{
 
     @Test
     public void testVerificarCelular() throws Exception {
-        //String url="https://www.telcel.com/";
-        //String state = "Aguascalientes";
-        //int phone = 1;
         Celular cellphone;
 
         home.goToPage(url);

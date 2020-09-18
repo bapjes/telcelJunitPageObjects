@@ -28,7 +28,7 @@ public class ParentTest {
     public ModalPage modal;
     public PhonesPage phones;
     public PhoneInfoPage phoneinfo;
-    // public Properties prop;
+
     protected WebDriverWait wait;
     protected String url;
     protected String state;
@@ -50,7 +50,7 @@ public class ParentTest {
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
 
-        wait = new WebDriverWait(driver, 10);
+
     }
 
 
@@ -58,15 +58,16 @@ public class ParentTest {
 
         Properties prop = new Properties();
 
-        String propFilename = System.getProperty("user.dir") + "\\src\\test\\java\\resources\\configuration\\data.properties";
+        //System.getProperty("user.dir") + ".\\src\\test\\java\\resources\\configuration\\data.properties";
+
+        String propFilename = ".\\src\\test\\java\\resources\\configuration\\data.properties";
         InputStream inputStream = new FileInputStream(propFilename);
         if (inputStream != null) {
             prop.load(inputStream);
         } else {
             FileSystemNotFoundException ex = new FileSystemNotFoundException();
             ex.printStackTrace();
-            //throw new FileSystemNotFoundException("property file " +  " not found");
-        }
+         }
         url = prop.getProperty("url");
         state = prop.getProperty("state");
         phone = prop.getProperty("phone");
